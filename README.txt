@@ -1,3 +1,10 @@
+====================================================================================================
+This is a fork of the Lucene.Net repository. This particular branch was made from version 2.9.4g. 
+It contains a few modifications to be compatible with Sense/Net ECM. These modifications
+will never be merged back to the original project as it has already evolved since we
+started to use the version mentioned above.
+====================================================================================================
+
 Apache Lucene.Net README file
 
 
