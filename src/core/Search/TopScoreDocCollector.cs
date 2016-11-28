@@ -135,13 +135,19 @@ namespace Lucene.Net.Search
 			// that at this point top() is already initialized.
 			pqTop = (ScoreDoc) pq.Top();
 		}
-		
-		public /*protected internal*/ override TopDocs NewTopDocs(ScoreDoc[] results, int start)
+
+        /// <summary>
+        /// Only for Sense/Net
+        /// </summary>
+        public TopScoreDocCollector() : base(null) { }
+
+        public /*protected internal*/ override TopDocs NewTopDocs(ScoreDoc[] results, int start)
 		{
 			if (results == null)
 			{
-				return EMPTY_TOPDOCS;
-			}
+                //return EMPTY_TOPDOCS;
+                return new TopDocs(totalHits, new ScoreDoc[0], System.Single.NaN);
+            }
 			
 			// We need to compute maxScore in order to set it in TopDocs. If start == 0,
 			// it means the largest element is already in results, use its score as

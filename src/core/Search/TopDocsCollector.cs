@@ -50,11 +50,11 @@ namespace Lucene.Net.Search
 		{
 			this.pq = pq;
 		}
-		
-		/// <summary> Populates the results array with the ScoreDoc instaces. This can be
-		/// overridden in case a different ScoreDoc type should be returned.
-		/// </summary>
-		protected internal virtual void  PopulateResults(ScoreDoc[] results, int howMany)
+
+        /// <summary> Populates the results array with the ScoreDoc instaces. This can be
+        /// overridden in case a different ScoreDoc type should be returned.
+        /// </summary>
+        public virtual void  PopulateResults(ScoreDoc[] results, int howMany)
 		{
 			for (int i = howMany - 1; i >= 0; i--)
 			{
@@ -79,7 +79,7 @@ namespace Lucene.Net.Search
 		}
 		
 		/// <summary>Returns the top docs that were collected by this collector. </summary>
-		public TopDocs TopDocs()
+		public virtual TopDocs TopDocs()
 		{
 			// In case pq was populated with sentinel values, there might be less
 			// results than pq.size(). Therefore return all results until either
@@ -98,7 +98,7 @@ namespace Lucene.Net.Search
 		/// with the returned {@link TopDocs} object, which will contain all the
 		/// results this search execution collected.
 		/// </summary>
-		public TopDocs TopDocs(int start)
+		public virtual TopDocs TopDocs(int start)
 		{
 			// In case pq was populated with sentinel values, there might be less
 			// results than pq.size(). Therefore return all results until either
@@ -119,7 +119,7 @@ namespace Lucene.Net.Search
 		/// returned {@link TopDocs} object, which will contain all the results this
 		/// search execution collected.
 		/// </summary>
-		public TopDocs TopDocs(int start, int howMany)
+		public virtual TopDocs TopDocs(int start, int howMany)
 		{
 			
 			// In case pq was populated with sentinel values, there might be less
