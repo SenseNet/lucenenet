@@ -176,7 +176,7 @@ namespace Lucene.Net.Store
 			if (file == null)
 				throw new System.IO.FileNotFoundException(name);
 			
-			long ts2, ts1 = System.DateTime.Now.Ticks;
+			long ts2, ts1 = System.DateTime.UtcNow.Ticks;
 			do 
 			{
 				try
@@ -190,7 +190,7 @@ namespace Lucene.Net.Store
 					Support.ThreadClass.Current().Interrupt();
 					throw new System.SystemException(ie.Message, ie);
 				}
-				ts2 = System.DateTime.Now.Ticks;
+				ts2 = System.DateTime.UtcNow.Ticks;
 			}
 			while (ts1 == ts2);
 			

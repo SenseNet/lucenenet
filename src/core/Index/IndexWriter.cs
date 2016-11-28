@@ -919,7 +919,7 @@ namespace Lucene.Net.Index
 		public virtual void  Message(System.String message)
 		{
 			if (infoStream != null)
-                infoStream.WriteLine("IW " + messageID + " [" + DateTime.Now.ToString() + "; " + Support.ThreadClass.Current().Name + "]: " + message);
+                infoStream.WriteLine("IW " + messageID + " [" + DateTime.UtcNow.ToString() + "; " + Support.ThreadClass.Current().Name + "]: " + message);
 		}
 		
 		private void  SetMessageID(System.IO.StreamWriter infoStream)

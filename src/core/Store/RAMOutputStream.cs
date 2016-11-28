@@ -167,7 +167,7 @@ namespace Lucene.Net.Store
 		
 		public override void  Flush()
 		{
-			file.SetLastModified((DateTime.Now.Ticks / TimeSpan.TicksPerMillisecond));
+			file.SetLastModified((DateTime.UtcNow.Ticks / TimeSpan.TicksPerMillisecond));
 			SetFileLength();
 		}
 		

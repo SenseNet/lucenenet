@@ -110,7 +110,7 @@ namespace Lucene.Net.Search
 				fi = cache[filter.GetHashCode()];
 				if (fi != null)
 				{
-					fi.timestamp = System.DateTime.Now.Ticks;
+					fi.timestamp = System.DateTime.UtcNow.Ticks;
 					return fi.filter;
 				}
 				cache[filter.GetHashCode()] = new FilterItem(this, filter);
@@ -144,7 +144,7 @@ namespace Lucene.Net.Search
 			{
 				InitBlock(enclosingInstance);
 				this.filter = filter;
-				this.timestamp = System.DateTime.Now.Ticks;
+				this.timestamp = System.DateTime.UtcNow.Ticks;
 			}
 		}
 		

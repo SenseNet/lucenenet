@@ -763,7 +763,7 @@ namespace Lucene.Net.Store
 		{
 			EnsureOpen();
 			System.IO.FileInfo file = new System.IO.FileInfo(System.IO.Path.Combine(directory.FullName, name));
-			file.LastWriteTime = System.DateTime.Now;
+			file.LastWriteTime = System.DateTime.UtcNow;
 		}
 		
 		/// <summary>Returns the length in bytes of a file in the directory. </summary>
