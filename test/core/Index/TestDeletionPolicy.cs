@@ -302,7 +302,7 @@ namespace Lucene.Net.Index
 			{
 				// Record last time when writer performed deletes of
 				// past commits
-				lastDeleteTime = (DateTime.Now.Ticks / TimeSpan.TicksPerMillisecond);
+				lastDeleteTime = (DateTime.UtcNow.Ticks / TimeSpan.TicksPerMillisecond);
 				writer = new IndexWriter(dir, autoCommit, new WhitespaceAnalyzer(), false, policy);
 				writer.SetUseCompoundFile(useCompoundFile);
 				for (int j = 0; j < 17; j++)
