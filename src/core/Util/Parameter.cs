@@ -77,16 +77,25 @@ namespace Lucene.Net.Util
 
         public static bool operator==(Parameter p1,Parameter p2)
         {
+            if (ReferenceEquals(p1, null))
+                return ReferenceEquals(p2, null);
+
             return p1.Equals(p2);
         }
 
         public static bool operator !=(Parameter p1, Parameter p2)
         {
+            if (ReferenceEquals(p1, null))
+                return !ReferenceEquals(p2, null);
+
             return !p1.Equals(p2);
         }
 
         public override bool Equals(object obj)
         {
+            if (ReferenceEquals(obj, null))
+                return false;
+
             if (obj.GetType() != this.GetType()) return false;
             return this.name.Equals((obj as Parameter).name);
         }
