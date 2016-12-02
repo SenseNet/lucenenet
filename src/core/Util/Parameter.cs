@@ -16,88 +16,66 @@
  */
 
 using System;
-using System.Collections.Generic;
 
 namespace Lucene.Net.Util
 {
-	
-	/// <summary> A serializable Enum class.</summary>
-	[Serializable]
-    public abstract class Parameter 
-	{
-        internal static Dictionary<string, Parameter> allParameters = new Dictionary<string, Parameter>();
-                
-		private System.String name;
-		
-		private Parameter()
-		{
-			// typesafe enum pattern, no public constructor
-		}
-		
-		protected internal Parameter(System.String name)
-		{
-			// typesafe enum pattern, no public constructor
-			this.name = name;
-			string key = MakeKey(name);
 
-            if (allParameters.ContainsKey(key))
-                return;
-			//	throw new System.ArgumentException("Parameter name " + key + " already used!");
-			
-			allParameters[key] = this;
-		}
-		
-		private string MakeKey(System.String name)
-		{
-			return GetType() + " " + name;
-		}
-		
-		public override string ToString()
-		{
-			return name;
-		}
-		
-		/// <summary> Resolves the deserialized instance to the local reference for accurate
-		/// equals() and == comparisons.
-		/// 
-		/// </summary>
-		/// <returns> a reference to Parameter as resolved in the local VM
-		/// </returns>
-		/// <throws>  ObjectStreamException </throws>
-        //protected internal virtual System.Object ReadResolve()
-        //{
-        //    System.Object par = allParameters[MakeKey(name)];
-			
-        //    if (par == null)
-        //        throw new System.IO.IOException("Unknown parameter value: " + name);
-			
-        //    return par;
-        //}
+    /// <summary> A serializable Enum class.</summary>
+    [Serializable]
+    public abstract class Parameter : System.Runtime.Serialization.IObjectReference
+    {
+        internal static System.Collections.IDictionary allParameters = new System.Collections.Hashtable();
 
+        private System.String name;
 
-        public static bool operator==(Parameter p1,Parameter p2)
+        private Parameter()
         {
-            if (ReferenceEquals(p1, null))
-                return ReferenceEquals(p2, null);
-
-            return p1.Equals(p2);
+            // typesafe enum pattern, no public constructor
         }
 
-        public static bool operator !=(Parameter p1, Parameter p2)
+        protected internal Parameter(System.String name)
         {
-            if (ReferenceEquals(p1, null))
-                return !ReferenceEquals(p2, null);
+            // typesafe enum pattern, no public constructor
+            this.name = name;
+            System.String key = MakeKey(name);
 
-            return !p1.Equals(p2);
+            if (allParameters.Contains(key))
+                throw new System.ArgumentException("Parameter name " + key + " already used!");
+
+            allParameters[key] = this;
         }
 
-        public override bool Equals(object obj)
+        private System.String MakeKey(System.String name)
         {
-            if (ReferenceEquals(obj, null))
-                return false;
-
-            if (obj.GetType() != this.GetType()) return false;
-            return this.name.Equals((obj as Parameter).name);
+            return GetType() + " " + name;
         }
-	}
+
+        public override System.String ToString()
+        {
+            return name;
+        }
+
+        /// <summary> Resolves the deserialized instance to the local reference for accurate
+        /// equals() and == comparisons.
+        /// 
+        /// </summary>
+        /// <returns> a reference to Parameter as resolved in the local VM
+        /// </returns>
+        /// <throws>  ObjectStreamException </throws>
+        protected internal virtual System.Object ReadResolve()
+        {
+            System.Object par = allParameters[MakeKey(name)];
+
+            if (par == null)
+                throw new System.IO.IOException("Unknown parameter value: " + name);
+
+            return par;
+        }
+
+        // "ReadResolve"s equivalent for .NET
+        public Object GetRealObject(System.Runtime.Serialization.StreamingContext context)
+        {
+            return ReadResolve();
+        }
+    }
 }

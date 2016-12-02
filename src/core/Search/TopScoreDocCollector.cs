@@ -140,14 +140,14 @@ namespace Lucene.Net.Search
         /// Only for Sense/Net
         /// </summary>
         public TopScoreDocCollector() : base(null) { }
-
-        public /*protected internal*/ override TopDocs NewTopDocs(ScoreDoc[] results, int start)
+		
+		public /*protected internal*/ override TopDocs NewTopDocs(ScoreDoc[] results, int start)
 		{
 			if (results == null)
 			{
                 //return EMPTY_TOPDOCS;
                 return new TopDocs(totalHits, new ScoreDoc[0], System.Single.NaN);
-            }
+			}
 			
 			// We need to compute maxScore in order to set it in TopDocs. If start == 0,
 			// it means the largest element is already in results, use its score as
