@@ -1,0 +1,40 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <AssemblyName>Lucene.Net</AssemblyName>
+    <RootNamespace>Lucene.Net</RootNamespace>
+    <AssemblyVersion>2.9.4.301</AssemblyVersion>
+    <FileVersion>2.9.4.301</FileVersion>
+    <Version>2.9.4.301</Version>
+    <Company>The Apache Software Foundation</Company>
+    <Description>The Apache Software Foundation Lucene.Net a full-text search engine library.
+This version is a fork of the original Lucene.Net code for the sensenet platform.</Description>
+    <Copyright>Copyright 2006 - 2011 The Apache Software Foundation</Copyright>
+    <PackageId>SenseNet.Search.Lucene29.Lucene.Net</PackageId>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageProjectUrl>https://github.com/SenseNet/lucenenet</PackageProjectUrl>
+    <PackageLicenseUrl>https://github.com/SenseNet/lucenenet/blob/sn-lucenenet-294g/LICENSE.txt</PackageLicenseUrl>
+    <RepositoryUrl>https://github.com/SenseNet/lucenenet.git</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageReleaseNotes>See release notes on GitHub.</PackageReleaseNotes>
+    <PackageTags>sensenet search indexing query</PackageTags>
+    <PackageIconUrl>https://raw.githubusercontent.com/SenseNet/sn-resources/master/images/sn-icon/sensenet-icon-64.png</PackageIconUrl>
+    <Authors>Lucene.Net,kavics,tusmester</Authors>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="QueryParser\pre Lucene.Net-172 fix\**" />
+    <EmbeddedResource Remove="QueryParser\pre Lucene.Net-172 fix\**" />
+    <None Remove="QueryParser\pre Lucene.Net-172 fix\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="Util\CloseableThreadLocal-old.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="System.Configuration.ConfigurationManager" Version="4.5.0" />
+  </ItemGroup>
+
+</Project>

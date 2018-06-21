@@ -24,19 +24,19 @@ using System.Runtime.CompilerServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 //
-[assembly: AssemblyTitle("Apache Lucene.Net")]
-[assembly: AssemblyDescription("The Apache Software Foundation Lucene.Net a full-text search engine library")]
-[assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("The Apache Software Foundation")]
-[assembly: AssemblyProduct("Lucene.Net")]
-[assembly: AssemblyCopyright("Copyright 2006 - 2011 The Apache Software Foundation")]
+//[assembly: AssemblyTitle("Apache Lucene.Net")]
+//[assembly: AssemblyDescription("The Apache Software Foundation Lucene.Net a full-text search engine library")]
+//[assembly: AssemblyConfiguration("")]
+//[assembly: AssemblyCompany("The Apache Software Foundation")]
+//[assembly: AssemblyProduct("Lucene.Net")]
+//[assembly: AssemblyCopyright("Copyright 2006 - 2011 The Apache Software Foundation")]
 [assembly: AssemblyTrademark("Copyright 2006 - 2011 The Apache Software Foundation")]
 [assembly: AssemblyDefaultAlias("Lucene.Net")]
 [assembly: AssemblyCulture("")]
 
 [assembly: CLSCompliant(true)]
 
-[assembly: AssemblyInformationalVersionAttribute("2.9.4")]
+//[assembly: AssemblyInformationalVersionAttribute("2.9.4")]
 
 
 //
@@ -50,7 +50,7 @@ using System.Runtime.CompilerServices;
 // You can specify all the values or you can default the Revision and Build Numbers 
 // by using the '*' as shown below:
 
-[assembly: AssemblyVersion("2.9.4.002")]
+//[assembly: AssemblyVersion("2.9.4.002")]
 
 
 //
